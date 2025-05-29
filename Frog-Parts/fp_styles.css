@@ -1,0 +1,368 @@
+@charset "utf-8";
+/*
+    Author: Jonathan Kinney
+    Date Created: 05/01/2025
+    Date Modified: 05/20/2025
+
+    Filename: fp_styles.css
+*/
+
+/* Header Styles */
+.frog-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    background: linear-gradient(to right, #b2f2bb, #d3f9d8);
+    box-shadow: 0 2px 8px rgba(0, 50, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#headerLink {
+    text-decoration: none;
+    display: block;
+}
+
+#frogLogo {
+    height: 70px;
+    width: auto;
+    border-radius: 10px;
+}
+
+#frogTitle {
+    font-family: 'Papyrus', fantasy, cursive;
+    font-size: 2.5em;
+    color: #2f5f2f;
+    margin: 0;
+    text-shadow: 1px 1px 0 #d6f5d6;
+}
+
+/* Form Page */
+body {
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e1f7e7;
+    color: #333;
+    padding: 2em;
+    margin: 0;
+}
+
+div {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form {
+    margin: 0em;
+}
+
+td {
+    padding: 0.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+td#loaddropdown, tr#loadbutton {
+    padding-bottom: 0em;
+}
+
+tr#heading {
+    background: #3b9e5c;
+}
+
+tr {
+    background: #c2e6cf;
+    font-weight: bold;
+}
+
+select, input[type="submit"] {
+    width: 100%;
+    padding: 0.4em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background: #49c272;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #3cab5f;
+}
+
+input[type="text"] {
+    width: 200px;
+}
+
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button {
+    width: 100%;
+    padding: 0.4em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.frog-feedback-button {
+    position: fixed;
+    width: auto;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7ed957;
+    color: white;
+    padding: 0.8em 1em;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+.frog-feedback-button:hover {
+    background-color: #65b743;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Results Page */
+.result-container {
+    max-width: 600px;
+    margin: 2em auto;
+    background: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.result-container h1, .result-container h2 {
+    margin-top: 0;
+}
+
+.result-container img {
+    margin-top: 1em;
+    width: 100%;
+    max-width: 300px;
+    padding-bottom: 3em;
+}
+
+.back-link {
+    position: relative;
+    top: 1em;
+    left: 1em;
+    text-decoration: none;
+    font-size: 1em;
+    background-color: #e0ffe0;
+    padding: 0.4em 0.8em;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+-back-link:hover {
+    background-color: #c2f0c2;
+}
+
+/* Feedback Page */
+.feedback-div {
+    background-color: #e6ffe6;
+    border: 2px dashed #7ec850;
+    border-radius: 20px;
+    padding: 20px;
+    width: 500px;
+    margin: 40px auto;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.feedback-div input[type="text"], textarea {
+    width: 96%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid #a2d149;
+    border-radius: 8px;
+    background-color: #f5fff5;
+    font-size: 1em;
+}
+
+.feedback-div input[type="submit"] {
+    background-color: #a2d149;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-div input[type="submit"]:hover {
+    background-color: #7ec850;
+}
+
+.feedback-div h1 {
+    text-align: center;
+    font-family: 'Papyrus', fantasy, cursive;
+    color: #3d6b3d;
+}
+
+#feedbackImage img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#feedbackImage p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2e5c2e;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px #ccc;
+}
+
+/* Process Feedback Page */
+.process-feedback-div {
+    background-color: #f0ffe0;
+    border: 3px dotted #7ec850;
+    border-radius: 20px;
+    padding: 25px;
+    width: 600px;
+    margin: 40px auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.process-feedback-div h1 {
+    color: #3d6b3d;
+    font-family: 'Papyrus', fantasy, cursive;
+    margin-bottom: 10px;
+}
+
+.process-feedback-div p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+#homeButton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #a2d149;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#homeButton:hover {
+    background-color: #7ec850;
+}
+
+/* Feedback Search Page */
+.feedback-search-body body {
+    background-color: #e0ffe0;
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003300;
+    padding: 2em;
+}
+
+.feedback-search-div {
+    background-color: #ccffcc;
+    border: 2px solid #009900;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 4px 4px 10px rgba(0, 100, 0, 0.2);
+}
+
+.feedback-search-div input[type="text"] {
+    width: 96%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #66cc66;
+}
+
+.feedback-search-div input[type="submit"] {
+    background-color: #66cc66;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.feedback-search-div input[type="submit"]:hover {
+    background-color: #55aa55;
+}
+
+.search-results-div {
+    background-color: #f0fff0;
+    border: 2px dashed #99cc99;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: 2px 2px 10px rgba(0, 128, 0, 0.2);
+    white-space: pre-wrap;
+    font-family: 'Courier New', 'Courier New', Courier, monospace;
+    color: #003300;
+}
+
+#searchNotFound {
+    background-color: #ffeeee;
+    color: #990000;
+    border: 2px solid #dd6666;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 2px 8px rgba(150, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+.frog-footer {
+    background-color: #e6ffe6;
+    color: #3d6b3d;
+    border-top: 2px solid #a2d149;
+    padding: 1em;
+    text-align: center;
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9em;
+    margin-top: 3em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}

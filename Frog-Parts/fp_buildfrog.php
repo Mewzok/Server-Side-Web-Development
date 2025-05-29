@@ -18,27 +18,33 @@
 
   // handle saving
   if($saved) {
-    @$db = new mysqli('localhost', 'frogparts', 'frogparts123', 'frogparts');
+    require_once('../dbconnect.php');
 
-    if(mysqli_connect_errno()) {
-      echo "<p>Error: Could not connect to database.<br />
-        Please try again later.</p>";
+    try {
+      @$db = new mysqli($db_servser, $db_user_name, $db_password, $db_name);
+
+      if($db->connect_errno) {
+        throw new Exception("Database connection failed: ".$db->connect_error);
+      }
+
+      $query = "INSERT INTO Frogs VALUES (?, ?, ?, ?)";
+      $stmt = $db->prepare($query);
+      $stmt->bind_param('ssss', $name, $color, $arm, $leg);
+      $stmt->execute();
+
+      if($stmt->affected_rows > 0) {
+        echo "<p>Frog saved.</p>";
+      } else {
+        throw new Exception("Database connection failed: ".$db->connect_error);
+      }
+
+      $db->close();
+    } catch (Exception $e) {
+      error_log($e->getMessage());
+
+      echo "<p>Unable to connect to database. Try again later.</p>";
       exit;
     }
-
-    $query = "INSERT INTO Frogs VALUES (?, ?, ?, ?)";
-    $stmt = $db->prepare($query);
-    $stmt->bind_param('ssss', $name, $color, $arm, $leg);
-    $stmt->execute();
-
-    if($stmt->affected_rows > 0) {
-      echo "<p>Frog saved.</p>";
-    } else {
-      echo "<p>An error has occured.<br />
-        Frog could not be saved.</p>";
-    }
-
-    $db->close();
   }
 ?>
 <!DOCTYPE html>

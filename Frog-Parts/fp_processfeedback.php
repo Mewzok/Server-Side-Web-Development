@@ -13,13 +13,14 @@
     }
 
     // send feedback to database
-    @$db = new mysqli('localhost', 'frogparts', 'frogparts123', 'frogparts');
+    require_once('../dbconnect.php');
 
-    if(mysqli_connect_errno()) {
-        echo "<p>Error: Could not connect to database.<br />
-            Please try again later.</p>";
-        exit;
-    }
+    try {
+    @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
+
+    if($db->connect_errno) {
+        throw new Exception("Database connection failed: ".$db->connect_error);
+      }
 
     $query = "INSERT INTO Feedback (FrogName, Email, Name, Message) VALUES (?, ?, ?, ?)";
     $stmt = $db->prepare($query);
@@ -46,5 +47,11 @@
         <?php
     } else {
         $error = "Frog feedback could not be saved.";
+    }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+
+        echo "<p>Unable to connect to database. Try again later.</p>";
+        exit;
     }
 ?>

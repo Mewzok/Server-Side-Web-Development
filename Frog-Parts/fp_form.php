@@ -11,7 +11,7 @@
       Frog Parts home/form page
       Author: Jonathan Kinney
       Date Created:  05/1/2025
-      Date Modified: 05/27/2025
+      Date Modified: 05/29/2025
 
       Filename: fp_form.html
     -->
@@ -27,19 +27,21 @@
     <!-- put all saved frog names in an array to check for already taken name ----------->
      <?php
      $frogList = [];
-     try {
-     @$db = new mysqli('localhost', 'frogparts', 'frogparts123', 'frogparts');
-     if(mysqli_connect_errno()) {
-       echo '<p>Error: Could not connect to database.<br />
-         Please try again later.</p>';
-       exit;
-     }
 
-     $query = "SELECT FrogName, Color, Arm, Leg FROM Frogs";
-     $stmt = $db->prepare($query);
-     $stmt->execute();
+    require_once('../dbconnect.php');
 
-     $stmt->bind_result($frogName, $color, $arm, $leg);
+    try {
+      @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
+
+      if($db->connect_errno) {
+        throw new Exception("Database connection failed: ".$db->connect_error);
+      }
+
+      $query = "SELECT FrogName, Color, Arm, Leg FROM Frogs";
+      $stmt = $db->prepare($query);
+      $stmt->execute();
+
+      $stmt->bind_result($frogName, $color, $arm, $leg);
 
       while($stmt->fetch()) {
         $frogList[] = [
@@ -50,7 +52,10 @@
         ];
       }
     } catch (Exception $e) {
-      echo "Error: Could not connect to database.";
+      error_log($e->getMessage());
+
+      echo "<p>Unable to connect to database. Try again later.</p>";
+      exit;
     }
      ?>
     <!-- end of array of names creation -------------------------------------------------->

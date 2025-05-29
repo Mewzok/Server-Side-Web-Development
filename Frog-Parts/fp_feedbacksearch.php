@@ -10,12 +10,14 @@
         $searchKey = trim($_POST['search']);
         $likeTerm = "%".$searchKey."%";
 
-        $db = new mysqli('localhost', 'frogparts', 'frogparts123', 'frogparts');
-        if(mysqli_connect_errno()) {
-            echo '<p>Error: Could not connect to database.<br />
-                Please try again later.</p';
-            exit;
-        }
+        require_once('../dbconnect.php');
+
+        try {
+        $db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
+
+        if($db->connect_errno) {
+            throw new Exception("Database connection failed: ".$db->connect_error);
+          }
 
         $query = "SELECT FrogName, Email, Name, Message FROM Feedback WHERE FrogName LIKE ? 
         OR Email LIKE ? OR Name LIKE ? OR Message LIKE ?";
@@ -38,6 +40,12 @@
 
         $stmt->close();
         $db->close();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+
+            echo "<p>Unable to connect to database. Try again later.</p>";
+            exit;
+        }
     }
 ?>
 

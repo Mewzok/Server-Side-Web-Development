@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XSS Test</title>
+    </head>
+    <body>
+        <h2>Name your frog:</h2>
+        <form action="xss-output.php" method="post">
+            <input type="text" name="frogname">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

@@ -24,15 +24,14 @@
         $stmt = $db->prepare($query);
         $stmt->bind_param('ssss', $likeTerm, $likeTerm, $likeTerm, $likeTerm);
         $stmt->execute();
-        $stmt->store_result();
 
         $stmt->bind_result($frogName, $email, $name, $message);
 
         if($stmt->num_rows > 0) {
             while($stmt->fetch()) {
                 $results[] = "<div class='result'>
-                <h3>$frogName</h3>
-                <p><strong>From:</strong> $name ($email)</p>
+                <h3><?php htmlspecialchars($frogName) ?></h3>
+                <p><strong>From:</strong> <?php htmlspecialchars($name) ?> (<?php htmlspecialchars($email) ?>)</p>
                 <p><strong>Feedback:</strong><br />".nl2br(htmlspecialchars($message))."</p>
             </div>";
             }

@@ -16,42 +16,43 @@
     require_once('../dbconnect.php');
 
     try {
-    @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
+        @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
 
-    if($db->connect_errno) {
-        throw new Exception("Database connection failed: ".$db->connect_error);
-      }
+        if($db->connect_errno) {
+            throw new Exception("Database connection failed: ".$db->connect_error);
+        }
 
-    $query = "INSERT INTO Feedback (FrogName, Email, Name, Message) VALUES (?, ?, ?, ?)";
-    $stmt = $db->prepare($query);
-    $stmt->bind_param('ssss', $frogName, $email, $name, $message);
-    $stmt->execute();
+        $query = "INSERT INTO Feedback (FrogName, Email, Name, Message) VALUES (?, ?, ?, ?)";
+        $stmt = $db->prepare($query);
+        if(!$stmt) throw new Exception("Prepare failed: ".$db->error);
+        $stmt->bind_param('ssss', $frogName, $email, $name, $message);
+        if(!$stmt->execute()) throw new Exception("Execute failed: ".$stmt->error);
 
-    if($stmt->affected_rows > 0) {
-        ?>
-        <!DOCTYPE html>
-            <html lang="en">
-                <head>
-                    <title>Frog Parts - Frog Feedback Submitted</title>
-                    <link href="fp_styles.css" rel="stylesheet" />
-                </head>
-                <body>
-                    <div class="process-feedback-div">
-                        <?php echo "$frogName"; ?>
-                        <h1>Frog Feedback Submitted</h1>
-                        <p>🐸 Your feedback has been duly noted and promptly ignored 🐸</p>
-                        <a href="fp_form.php" id="homeButton">Back to Home Page</a>
-                    </div>
-                </body>
-            </html>
-        <?php
-    } else {
-        $error = "Frog feedback could not be saved.";
-    }
+        if($stmt->affected_rows > 0) {
+            ?>
+            <!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                        <title>Frog Parts - Frog Feedback Submitted</title>
+                        <link href="fp_styles.css" rel="stylesheet" />
+                    </head>
+                    <body>
+                        <div class="process-feedback-div">
+                            <h1>Frog Feedback Submitted</h1>
+                            <p>🐸 Your feedback has been duly noted and promptly ignored 🐸</p>
+                            <a href="fp_form.php" id="homeButton">Back to Home Page</a>
+                        </div>
+                    </body>
+                </html>
+            <?php
+        } else {
+            echo "<p>Feedback could not be saved. Try again later.</p>";
+            exit;
+        }
     } catch (Exception $e) {
-        error_log($e->getMessage());
+        error_log("Feedback error: ".$e->getMessage());
 
-        echo "<p>Unable to connect to database. Try again later.</p>";
+        echo "<p>There was a problem submitting your feedback. Try again later.</p>";
         exit;
     }
 ?>

@@ -62,7 +62,10 @@
             <?php
         }
 
-        public function DisplayFeedback($name, $color, $arm, $leg) {
+        // don't allow feedback unless frog is saved. This is to ensure there's a foreign key just for practice, but
+        // also I don't want to reward cowards who can't accept responsibility for what they've done. -->
+        public function DisplayFeedback($name, $color, $arm, $leg, $saved) {
+            if($saved) {
             ?>
             <form action="fp_feedbackform.php" method="post">
                 <input type="hidden" name="frogname" value="<?php echo htmlspecialchars($name); ?>">
@@ -72,6 +75,11 @@
                 <button class="frog-feedback-button" type="submit">🐸 Frog Feedback</button>
             </form>
             <?php
+            } else {
+                ?>
+                <button class="frog-feedback-button" onclick="alert('Save your frog before leaving feedback, coward.')">🐸 Frog Feedback</button>
+                <?php
+            }
         }
     }
 ?>

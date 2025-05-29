@@ -29,8 +29,9 @@
 
       $query = "INSERT INTO Frogs VALUES (?, ?, ?, ?)";
       $stmt = $db->prepare($query);
+      if(!$stmt) throw new Exception("Prepare failed: ".$db->error);
       $stmt->bind_param('ssss', $name, $color, $arm, $leg);
-      $stmt->execute();
+      if(!$stmt->execute()) throw new Exception("Execute failed: ".$stmt->error);
 
       if($stmt->affected_rows > 0) {
         echo "<p>Frog saved.</p>";
@@ -87,7 +88,7 @@
       ?>
     </form>
     </div>
-    <?php $buildPage->DisplayFeedback($name, $color, $arm, $leg); ?>
+    <?php $buildPage->DisplayFeedback($name, $color, $arm, $leg, $saved); ?>
     <?php $buildPage->DisplayFooter(); ?>
   </body>
 </html>

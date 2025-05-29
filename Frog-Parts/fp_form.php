@@ -33,13 +33,14 @@
     try {
       @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
 
-      if($db->connect_errno) {
+      if(!$db || $db->connect_errno) {
         throw new Exception("Database connection failed: ".$db->connect_error);
       }
 
       $query = "SELECT FrogName, Color, Arm, Leg FROM Frogs";
       $stmt = $db->prepare($query);
-      $stmt->execute();
+      if(!$stmt) throw new Exception("Prepare failed: ".$db->error);
+      if(!$stmt->execute()) throw new Exception("Execute failed: ".$stmt->error);
 
       $stmt->bind_result($frogName, $color, $arm, $leg);
 
@@ -52,7 +53,7 @@
         ];
       }
     } catch (Exception $e) {
-      error_log($e->getMessage());
+      error_log("In fp_form.php".$e->getMessage());
 
       echo "<p>Unable to connect to database. Try again later.</p>";
       exit;
@@ -147,26 +148,30 @@
         const selected = loadDropdown.value;
         if(!selected) return;
 
-        const frog = JSON.parse(selected);
+        try {
+          const frog = JSON.parse(selected);
 
-        document.querySelector('select[name="frogcolor"]').value = frog['color'];
-        document.querySelector('select[name="frogarm"]').value = frog['arm'];
-        document.querySelector('select[name="frogleg"]').value = frog['leg'];
-        document.querySelector('input[name="frogname"]').value = frog['name'];
+          document.querySelector('select[name="frogcolor"]').value = frog['color'];
+          document.querySelector('select[name="frogarm"]').value = frog['arm'];
+          document.querySelector('select[name="frogleg"]').value = frog['leg'];
+          document.querySelector('input[name="frogname"]').value = frog['name'];
 
 
-        loadedInput.type = "hidden";
-        loadedInput.name = "loaded";
-        loadedInput.value = "true";
-        frogForm.appendChild(loadedInput);
-        frogForm.submit();
+          loadedInput.type = "hidden";
+          loadedInput.name = "loaded";
+          loadedInput.value = "true";
+          frogForm.appendChild(loadedInput);
+          frogForm.submit();
+        } catch (e) {
+          alert("Failed to load frog data.");
+        }
       });
     </script>
     <!-- load button -------------------------------------------------->
     <!-- check for duplicate name ------------------------------------->
       <script>
         document.querySelector('form[action="fp_buildfrog.php"]').addEventListener('submit', function(e) {
-          const existingNames = <?php echo json_encode(array_column($frogList, 3)); ?>;
+          const existingNames = <?php echo json_encode(array_column($frogList, 'name')); ?>;
           const nameInput = document.querySelector('input[name="frogname"]');
           const enteredName = nameInput.value.trim();
 

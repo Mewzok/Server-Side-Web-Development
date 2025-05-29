@@ -13,7 +13,7 @@
 
   // cancel if no name
   if($name === '') {
-    die("Frog has no name.");
+    exit("Frog has no name.");
   }
 
   // handle saving
@@ -21,7 +21,7 @@
     require_once('../dbconnect.php');
 
     try {
-      @$db = new mysqli($db_servser, $db_user_name, $db_password, $db_name);
+      @$db = new mysqli($db_server, $db_user_name, $db_password, $db_name);
 
       if($db->connect_errno) {
         throw new Exception("Database connection failed: ".$db->connect_error);
@@ -40,7 +40,7 @@
 
       $db->close();
     } catch (Exception $e) {
-      error_log($e->getMessage());
+      error_log("In fp_buildrog.php: ".$e->getMessage());
 
       echo "<p>Unable to connect to database. Try again later.</p>";
       exit;
@@ -65,8 +65,10 @@
       <h3><?php echo $name;?></h3>
       <?php
       // display frog
-      echo '<img src="fp_images.php?frogcolor='.urlencode($color).'&frogarm='.urlencode($arm).
-      '&frogleg='.urlencode($leg).'&frogname='.urlencode($name).'" alt="Your frog" />';
+      echo '<img src="fp_images.php?frogcolor='.htmlspecialchars(urlencode($color))
+      .'&frogarm='.htmlspecialchars(urlencode($arm))
+      .'&frogleg='.htmlspecialchars(urlencode($leg))
+      .'&frogname='.htmlspecialchars(urlencode($name)).'" alt="Your frog" />';
       ?>
 
     <form id="buildform" action="fp_buildfrog.php" method="post">

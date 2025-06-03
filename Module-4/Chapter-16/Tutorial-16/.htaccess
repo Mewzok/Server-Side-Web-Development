@@ -1,0 +1,6 @@
+AuthUserFile /Users/student/Server-Side-Web-Development/.htpass
+AuthType Basic
+AuthName "Authorization Needed"
+AuthBasicProvider file
+Require valid-user
+ErrorDocument 401 /rejection.html

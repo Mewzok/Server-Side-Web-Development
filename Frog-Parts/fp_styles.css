@@ -2,7 +2,7 @@
 /*
     Author: Jonathan Kinney
     Date Created: 05/01/2025
-    Date Modified: 05/20/2025
+    Date Modified: 06/03/2025
 
     Filename: fp_styles.css
 */
@@ -352,6 +352,49 @@ button {
     font-weight: bold;
     font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 2px 2px 8px rgba(150, 0, 0, 0.1);
+}
+
+/* Login/Frogin Page Styles */
+.frogin-div {
+    background-color: #eefae2;
+    border: 2px dashed #88b04b;
+    border-radius: 16px;
+    padding: 3rem;
+    width: fit-content;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 100, 0, 0.2);
+    text-align: center;
+}
+
+.frogin-form input[type="text"], .frogin-form input[type="password"] {
+    width: 200px;
+    padding: 0.5rem;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.frogin-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.frogin-form button:hover {
+    background-color: #3e9e41;
+}
+
+.frogin-heading {
+    text-align: center;
+    color: #3e704c;
+    font-family: 'Garamond', serif;
+    margin-top: 2rem;
 }
 
 /* Footer Styles */

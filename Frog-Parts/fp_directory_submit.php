@@ -26,9 +26,9 @@
         <div class="directory-submit-div">
             <h1>Submit Site</h1>
             <form action="fp_directory_submit_process.php" method="post">
-                <label for="url">Enter the URL:</label>
+                <label for="lookupUrl">Enter the URL:</label>
                 <input type="text" name="url" id="lookupUrl" value="http://" /><br />
-                <label for="email">Enter the Email Contact:</label>
+                <label for="lookupEmail">Enter the Email Contact:</label>
                 <input type="text" name="email" id="lookupEmail" /><br />
                 <input type="submit" value="Submit Site"/>
         </div>

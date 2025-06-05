@@ -2,7 +2,7 @@
 /*
     Author: Jonathan Kinney
     Date Created: 05/01/2025
-    Date Modified: 06/03/2025
+    Date Modified: 06/06/2025
 
     Filename: fp_styles.css
 */
@@ -502,6 +502,91 @@ button {
     color: #3d6b3d;
     border-bottom: 1px solid #a2d149;
     padding-bottom: 0.3em;
+}
+
+/* Directory Submission Page Styles */
+.directory-submit-div {
+    background-color: #ffeeee;
+    padding: 2em;
+    margin: 3em auto;
+    max-width: 700px;
+    border: 4px double #355e3b;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #888888;
+    font-family: 'Georgia', serif;
+}
+
+.directory-submit-div h1 {
+    font-family: 'Papyrus', fantasy, cursive;
+    font-size: 2.2em;
+    color: #355e3b;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.directory-submit-div label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+    color: #1c3b1a;
+}
+
+.directory-submit-div input[type="text"],
+.directory-submit-div input[type="email"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.3em;
+    border: 2px solid #355e3b;
+    border-radius: 10px;
+    background-color: #f7f7ef;
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+}
+
+.directory-submit-div input[type="submit"] {
+    background-color: #a0d468;
+    color: #1c3b1a;
+    font-weight: bold;
+    padding: 0.6em 1.2em;
+    border: 2px solid #355e3b;
+    border-radius: 12px;
+    margin-top: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.directory-submit-div input[type="submit"]:hover {
+    background-color: #8cc152;
+}
+
+/* Directory Submit Processing Page Styles */
+.directory-submit-process-div {
+    background-color: #ffeeee;
+    padding: 2em;
+    margin: 3em auto;
+    max-width: 700px;
+    border: 4px dashed #355e3b;
+    border-radius: 25px;
+    box-shadow: 0 0 10px #aaa;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #1c3b1a;
+}
+
+.directory-submit-process-div h2 {
+    font-family: 'Papyrus', fantasy, cursive;
+    font-size: 2em;
+    color: #355e3b;
+}
+
+.directory-submit-process-div p {
+    font-size: 1.1em;
+    margin-top: 1em;
+}
+
+.directory-submit-process-div li {
+    list-style-type: none;
+    margin-right: 2.5em;
 }
 
 /* Footer Styles */

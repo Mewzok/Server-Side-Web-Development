@@ -180,7 +180,7 @@ button {
     transition: background-color 0.3s;
 }
 
--back-link:hover {
+.back-link:hover {
     background-color: #c2f0c2;
 }
 
@@ -395,6 +395,113 @@ button {
     color: #3e704c;
     font-family: 'Garamond', serif;
     margin-top: 2rem;
+}
+
+/* File Upload Page */
+.upload-div {
+    max-width: 600px;
+    margin: 3em auto;
+    background: #ffffff;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 80, 0, 0.1);
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upload-div h1 {
+    color: #3d6b3b;
+    font-family: 'Papyrus', fantasy, cursive;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.upload-div form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.upload-div input[type="file"] {
+    padding: 0.5em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f5fff5;
+}
+
+.upload-div input[type="submit"]:hover {
+    background-color: #65b473;
+}
+
+/* Upload Processing Page Styles */
+.upload-process-div {
+    max-width: 600px;
+    margin: 3em auto;
+    background-color: #f0fff0;
+    border: 2px dashed #a2d149;
+    border-radius: 16px;
+    padding: 2em;
+    box-shadow: 0 4px 12px rgba(0, 80, 0, 0.1);
+    font-family: "Segoe UI", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upload-process-div h1 {
+    color: #3e704c;
+    text-align: center;
+    font-family: 'Papyrus', fantasy, cursive;
+    margin-bottom: 1em;
+}
+
+.upload-process-div p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* File Browse/browsedir Page Styles */
+.file-browse-div {
+    max-width: 700px;
+    margin: 3em auto;
+    background-color: #ffffff;
+    border: 1px solid #a2d149;
+    border-radius: 10px;
+    padding: 2em;
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.1);
+}
+
+.file-browse-div h1 {
+    text-align: center;
+    font-family: 'Papyrus', fantasy, cursive;
+    color: #3d6b3d;
+    margin-bottom: 1em;
+}
+
+.file-browse-div ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.file-browse-div li {
+    padding: 0.5em;
+    border-bottom: 1px solid #cceccc;
+}
+
+.file-browse-div li a {
+    text-decoration: none;
+    color: #2a6b2a;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.file-browse-div li a:hover {
+    color: #175c17;
+}
+
+/* File Details Page Styles */
+.file-details-div h2 {
+    margin-top: 1.5em;
+    color: #3d6b3d;
+    border-bottom: 1px solid #a2d149;
+    padding-bottom: 0.3em;
 }
 
 /* Footer Styles */

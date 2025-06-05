@@ -10,7 +10,7 @@
             Frog Parts uploaded file details page
             Author: Jonathan Kinney
             Date Created: 06/03/2025
-            Date Modified: 06/03/2025
+            Date Modified: 06/05/2025
 
             Filename: fp_filedetails.php
         -->
@@ -36,6 +36,8 @@
 
                 $safe_file = $uploads_dir.'/'.$the_file;
 
+                echo '<div class="file-details-div">';
+
                 echo '<h1>Details of File: '.$the_file.'</h1>';
 
                 echo '<h2>File Data</h2>';
@@ -59,6 +61,10 @@
                 echo 'is_link: '.(is_link($safe_file)? 'true' : 'false').'<br />';
                 echo 'is_readable: '.(is_readable($safe_file)? 'true' : 'false').'<br />';
                 echo 'is_writable: '.(is_writable($safe_file)? 'true' : 'false').'<br />';
+                
+                echo '</div>';
+
+                echo '<a class="back-link" href=fp_browsedir.php>← Back to File List</a>';
             }
         ?>
 

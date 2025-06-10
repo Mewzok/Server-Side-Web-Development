@@ -44,11 +44,11 @@
         public function DisplayHeader() {
             ?>
             <!-- page header -->
-            <a href="index.php" id="headerLink">
-                <header class="page-header">
+            <header class="page-header">
+                <a href="index.php" id="headerLink">
                     <h1 id="pageTitle">Historical Apology Generator</h1>
-                </header>
-            </a>
+                </a>
+            </header>
             <?php
         }
     }

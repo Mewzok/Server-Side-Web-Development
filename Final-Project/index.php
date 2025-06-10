@@ -190,6 +190,17 @@
                 otherCheckboxes.forEach(checkbox => checkbox.checked = isChecked);
                 textInputs.forEach(input => input.disabled = isChecked);
             });
+
+            // handle other randomize checkboxes
+            otherCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const row = checkbox.closest('tr'); // uses the same row the checkbox is in
+                    const input = row.querySelector('input[type="text"]');
+                    if(input) {
+                        input.disabled = checkbox.checked;
+                    }
+                });
+            });
         </script>
     </body>
 </html>

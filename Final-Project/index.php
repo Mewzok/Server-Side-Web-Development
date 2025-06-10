@@ -22,74 +22,153 @@
         ?>
     </head>
     <body>
-        <?php
-            $page->DisplayHeader();
-        ?>
+        <?php $page->DisplayHeader(); ?>
         <div id="generatorFormDiv">
-            <form action="generateLetter.php" method="post">
+            <form action="generate.php" method="post">
                 <table style="border: 0px;">
                     <tr>
                         <td>Historical Figure</td>
                         <td>
-                            <input type="text" list="historicalFigures" />
-                            <datalist id="historicalFigures">
+                            <input type="text" name="figure" list="figures"/>
+                            <datalist id="figures">
                                 <option>Napoleon Bonaparte</option>
                                 <option>Julius Caesar</option>
                                 <option>George Washington</option>
+                                <option>Montezuma</option>
+                                <option>Barry Goldwater</option>
                             </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="hfRandomCheckbox" name="hfRandomCheckbox">
-                            <label for="hfRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="figRandomCheckbox" name="figRandomCheckbox">
+                            <label for="figRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>
-                        <td>Misdeed</td>
+                        <td>Recipient</td>
                         <td>
-                            <input type="text" list="misdeeds" />
-                            <datalist id="misdeeds">
-                                <option>Misdeed 1</option>
-                                <option>Misdeed 2</option>
-                                <option>Misdeed 3</option>
+                            <input type="text" name="recipient" list="recipients" />
+                            <datalist id="recipients">
+                                <option>Recipient 1</option>
+                                <option>Recipient 2</option>
+                                <option>Recipient 3</option>
                             </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="mdRandomCheckbox" name="mdRandomCheckbox">
-                            <label for="mdRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="recRandomCheckbox" name="recRandomCheckbox">
+                            <label for="recRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>
-                        <td>Reason</td>
+                        <td>Action</td>
                         <td>
-                            <input type="text" list="reasons" />
-                            <datalist id="reasons">
+                            <input type="text" name="action" list="actions" />
+                            <datalist id="actions">
                                 <option>Reason 1</option>
                                 <option>Reason 2</option>
                                 <option>Reason 3</option>
                             </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="rsRandomCheckbox" name="rsRandomCheckbox">
-                            <label for="rsRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="actRandomCheckbox" name="actRandomCheckbox">
+                            <label for="actRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>
-                        <td>Tone</td>
+                        <td>Place</td>
                         <td>
-                            <select name="tone" id="tone">
-                                <option value="tone1">Tone 1</option>
-                                <option value="tone2">Tone 2</option>
-                                <option value="tone3">Tone 3</option>
+                            <input type="text" name="place" list="places" />
+                            <datalist id="places">
+                                <option>Place 1</option>
+                                <option>Place 2</option>
+                                <option>Place 3</option>
+                            </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="tnRandomCheckbox" name="tnRandomCheckbox">
-                            <label for="tnRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="plaRandomCheckbox" name="plaRandomCheckbox">
+                            <label for="plaRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
-                    <td>
-                        <input type="checkbox" id="randomizeAllChecbox" name="randomizeAllCheckbox">
-                        <label for="randomizeAllCheckbox">Randomize All</label><br>
-                    </td>
+                    <tr>
+                        <td>Consequence</td>
+                        <td>
+                            <input type="text" name="consequence" list="consequences" />
+                            <datalist id="consequences">
+                                <option>Consequence 1</option>
+                                <option>Consequence 2</option>
+                                <option>Consequence 3</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="conRandomCheckbox" name="conRandomCheckbox">
+                            <label for="conRandomCheckbox">Randomize</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Justification</td>
+                        <td>
+                            <input type="text" name="justification" list="justifications" />
+                            <datalist id="justifications">
+                                <option>Justification 1</option>
+                                <option>Justification 2</option>
+                                <option>Justification 3</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="justRandomCheckbox" name="justRandomCheckbox">
+                            <label for="justRandomCheckbox">Randomize</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Talent</td>
+                        <td>
+                            <input type="text" name="talent" list="talents" />
+                            <datalist id="talents">
+                                <option>Talent 1</option>
+                                <option>Talent 2</option>
+                                <option>Talent 3</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="talRandomCheckbox" name="talRandomCheckbox">
+                            <label for="talRandomCheckbox">Randomize</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Feat</td>
+                        <td>
+                            <input type="text" name="feat" list="feats" />
+                            <datalist id="feats">
+                                <option>Feat 1</option>
+                                <option>Feat 2</option>
+                                <option>Feat 3</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="featRandomCheckbox" name="featRandomCheckbox">
+                            <label for="featRandomCheckbox">Randomize</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fact</td>
+                        <td>
+                            <input type="text" name="fact" list="facts" />
+                            <datalist id="facts">
+                                <option>Fact 1</option>
+                                <option>Fact 2</option>
+                                <option>Fact 3</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="factRandomCheckbox" name="factRandomCheckbox">
+                            <label for="factRandomCheckbox">Randomize</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="randomizeAllCheckbox" name="randomizeAllCheckbox">
+                            <label for="randomizeAllCheckbox">Randomize All</label><br>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <input type="submit" value="Generate Apology Letter" />

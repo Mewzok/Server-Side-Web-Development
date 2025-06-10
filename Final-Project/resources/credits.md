@@ -1,1 +1,2 @@
-parchment-banner-image.png https://pixabay.com/photos/paper-writing-old-antique-write-623167/ pixabay/Nile
+parchment-background.jpg https://pixabay.com/photos/paper-writing-old-antique-write-623167/ pixabay/Nile
+parchment.jpg https://pixabay.com/photos/paper-old-texture-parchment-1074131/ pixabay/ChrisFiedler

@@ -165,17 +165,31 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" id="randomizeAllCheckbox" name="randomizeAllCheckbox">
-                            <label for="randomizeAllCheckbox">Randomize All</label><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <input type="submit" value="Generate Apology Letter" />
+                        </td>
+                        <td colspan="3">
+                            <div id="randomizeAllDiv">
+                                <input type="checkbox" id="randomizeAllCheckbox" name="randomizeAllCheckbox">
+                                <label for="randomizeAllCheckbox" id="randomizeAllLabel">Randomize All</label>
+                            </div>
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
+        <script>
+            // handle randomize all button
+            const randomizeAllCheckbox = document.getElementById('randomizeAllCheckbox');
+            const otherCheckboxes = document.
+                querySelectorAll('input[type="checkbox"]:not(#randomizeAllCheckbox)');
+            const textInputs = document.querySelectorAll('input[type="text"]');
+
+            randomizeAllCheckbox.addEventListener('change', () => {
+                const isChecked = randomizeAllCheckbox.checked;
+
+                otherCheckboxes.forEach(checkbox => checkbox.checked = isChecked);
+                textInputs.forEach(input => input.disabled = isChecked);
+            });
+        </script>
     </body>
 </html>

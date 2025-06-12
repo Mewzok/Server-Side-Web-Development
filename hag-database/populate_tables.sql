@@ -78,7 +78,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'my highly consistent penmanship under cannon fire'),
 ('fact', 'the way I can spot a pigeon from 400 meters'),
 ('fact', 'the fact that I once donated to charity'),
-('fact', 'that one time I threw a molotov cocktail at a 7/11');
+('fact', 'that one time I threw a molotov cocktail through the window of a 7/11');
 
 INSERT INTO Feats(figure_id, content) VALUES
 (1, 'leading the French army to dominate Europe during the early 19th century'),

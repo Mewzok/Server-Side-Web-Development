@@ -38,10 +38,10 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('recipient', 'the island of Tortuga'),
 
 /* Actions */
-('action', 'invaded your territory'),
-('action', 'burned down the embassy'),
-('action', 'mistook you for a threat'),
-('action', '"repurposed" your horses'),
+('action', 'invading your territory'),
+('action', 'burning down the embassy'),
+('action', 'mistaking you for a threat'),
+('action', '"repurposing" your horses'),
 
 /* Places */
 ('place', 'the eastern provinces'),
@@ -51,7 +51,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('place', 'that one cave absolutely crammed FULL of bats'),
 
 /* Consequences */
-('consequence', 'sank the economy'),
+('consequence', 'sinked the economy'),
 ('consequence', 'caused national weeping'),
 ('consequence', 'ruined Tuesday forever'),
 ('consequence', 'started a new war'),

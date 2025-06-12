@@ -10,7 +10,7 @@
             Historical Apology Generator home page
             Author: Jonathan Kinney
             Date Created: 06/10/2025
-            Date Modified: 06/10/2025
+            Date Modified: 06/12/2025
 
             Filename: index.php
         -->
@@ -22,6 +22,45 @@
         ?>
     </head>
     <body>
+        <!-- database import ----------------------------------------------------------->
+        <?php
+            $figureList = [];
+
+            require_once('../hag-database/dbconnect.php');
+
+            try {
+                $db = new mysqli($host, $username, $password, $dbname);
+
+                if(!$db || $db->connect_errno) {
+                    throw new Exception("Database connection failed: ".$db->connect_error);
+                }
+
+                $query = "SELECT name FROM Figures";
+                $stmt = $db->prepare($query);
+                if(!$stmt) throw new Exception("Prepare failed: ".$db->error);
+
+                if(!$stmt->execute()) throw new Exception("Execute failed: ".$stmt->error);
+
+                $stmt->bind_result($name);
+
+                while($stmt->fetch()) {
+                    $figureList[] = [
+                        'name' => $name
+                    ];
+                }
+
+                echo count($figureList);
+
+                $stmt->close();
+                $db->close();
+            } catch(Exception $e) {
+                error_log("In index.php".$e->getMessage());
+
+                echo "<p>Unable to connect to database. Try again later.</p>";
+                exit;
+            }
+        ?>
+        <!-- end of database import --------------------------------------------------->
         <?php $page->DisplayHeader(); ?>
         <div id="generatorFormDiv">
             <form action="generate.php" method="post">
@@ -31,11 +70,10 @@
                         <td>
                             <input type="text" name="figure" list="figures"/>
                             <datalist id="figures">
-                                <option>Napoleon Bonaparte</option>
-                                <option>Julius Caesar</option>
-                                <option>George Washington</option>
-                                <option>Montezuma</option>
-                                <option>Barry Goldwater</option>
+                                <?php foreach($figureList as $figure): ?>
+                                    <option value="<?php echo htmlspecialchars($figure['name']); ?>">
+                                        <?php echo htmlspecialchars($figure['name']); ?>
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>

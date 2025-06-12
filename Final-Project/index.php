@@ -25,6 +25,7 @@
         <!-- database import ----------------------------------------------------------->
         <?php
             $figureList = [];
+            $featList = [];
             $wordbankList = [];
 
             require_once('../hag-database/dbconnect.php');
@@ -36,21 +37,60 @@
                     throw new Exception("Database connection failed: ".$db->connect_error);
                 }
 
-                $query = "SELECT name FROM Figures";
-                $stmt = $db->prepare($query);
-                if(!$stmt) throw new Exception("Prepare failed: ".$db->error);
+                // handle figures from database
+                $queryFigures = "SELECT * FROM Figures";
+                $stmtFigures = $db->prepare($queryFigures);
+                if(!$stmtFigures) throw new Exception("Preparing Figures failed: ".$db->error);
 
-                if(!$stmt->execute()) throw new Exception("Execute failed: ".$stmt->error);
+                if(!$stmtFigures->execute()) throw new Exception("Executing Figures failed: ".$stmtFigures->error);
 
-                $stmt->bind_result($name);
+                $stmtFigures->bind_result($id, $name, $style);
 
-                while($stmt->fetch()) {
+                while($stmtFigures->fetch()) {
                     $figureList[] = [
-                        'name' => $name
+                        'id' => $id,
+                        'name' => $name,
+                        'style' => $style
                     ];
                 }
 
-                $stmt->close();
+                // handle feats from database
+                $queryFeats = "SELECT figure_id, content FROM Feats";
+                $stmtFeats = $db->prepare($queryFeats);
+                if(!$stmtFeats) throw new Exception("Preparing Feats failed: ".$db->error);
+
+                if(!$stmtFeats->execute()) throw new Exception("Executing Feats failed: ".$stmtFeats->error);
+
+                $stmtFeats->bind_result($figureId, $featsContent);
+
+                while($stmtFeats->fetch()) {
+                    if(!isset($featsList[$figureId])) {
+                        $featsList[$figureId] = [];
+                    }
+
+                    $featsList[$figureId][] = $featsContent;
+                }
+
+                // handle wordbank from database
+                $queryBank = "SELECT word_type, content FROM WordBank";
+                $stmtBank = $db->prepare($queryBank);
+                if(!$stmtBank) throw new Exception("Preparing WordBank failed: ".$db->error);
+
+                if(!$stmtBank->execute()) throw new Exception("Executing WordBank failed: ".$stmtBank->error);
+
+                $stmtBank->bind_result($wordType, $bankContent);
+
+                while($stmtBank->fetch()) {
+                    if(!isset($wordBankList[$wordType])) {
+                        $wordBankList[$wordType] = [];
+                    }
+
+                    $wordBankList[$wordType][] = $bankContent;
+                }
+
+                $stmtFigures->close();
+                $stmtFeats->close();
+                $stmtBank->close();
                 $db->close();
             } catch(Exception $e) {
                 error_log("In index.php".$e->getMessage());
@@ -71,7 +111,6 @@
                             <datalist id="figures">
                                 <?php foreach($figureList as $figure): ?>
                                     <option value="<?php echo htmlspecialchars($figure['name']); ?>">
-                                        <?php echo htmlspecialchars($figure['name']); ?>
                                 <?php endforeach; ?>
                             </datalist>
                         </td>
@@ -85,9 +124,9 @@
                         <td>
                             <input type="text" name="recipient" list="recipients" />
                             <datalist id="recipients">
-                                <option>Recipient 1</option>
-                                <option>Recipient 2</option>
-                                <option>Recipient 3</option>
+                                <?php foreach($wordBankList['recipient'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -100,9 +139,9 @@
                         <td>
                             <input type="text" name="action" list="actions" />
                             <datalist id="actions">
-                                <option>Reason 1</option>
-                                <option>Reason 2</option>
-                                <option>Reason 3</option>
+                                <?php foreach($wordBankList['action'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -115,9 +154,9 @@
                         <td>
                             <input type="text" name="place" list="places" />
                             <datalist id="places">
-                                <option>Place 1</option>
-                                <option>Place 2</option>
-                                <option>Place 3</option>
+                                <?php foreach($wordBankList['place'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -130,9 +169,9 @@
                         <td>
                             <input type="text" name="consequence" list="consequences" />
                             <datalist id="consequences">
-                                <option>Consequence 1</option>
-                                <option>Consequence 2</option>
-                                <option>Consequence 3</option>
+                                <?php foreach($wordBankList['consequence'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -145,9 +184,9 @@
                         <td>
                             <input type="text" name="justification" list="justifications" />
                             <datalist id="justifications">
-                                <option>Justification 1</option>
-                                <option>Justification 2</option>
-                                <option>Justification 3</option>
+                                <?php foreach($wordBankList['justification'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -160,9 +199,9 @@
                         <td>
                             <input type="text" name="talent" list="talents" />
                             <datalist id="talents">
-                                <option>Talent 1</option>
-                                <option>Talent 2</option>
-                                <option>Talent 3</option>
+                                <?php foreach($wordBankList['talent'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>
@@ -175,9 +214,9 @@
                         <td>
                             <input type="text" name="fact" list="facts" />
                             <datalist id="facts">
-                                <option>Fact 1</option>
-                                <option>Fact 2</option>
-                                <option>Fact 3</option>
+                                <?php foreach($wordBankList['fact'] as $content): ?>
+                                    <option value="<?php echo htmlspecialchars($content); ?>">
+                                <?php endforeach; ?>
                             </datalist>
                         </td>
                         <td>

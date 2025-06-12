@@ -42,7 +42,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 /* Actions */
 ('action', 'invading your territory'),
 ('action', 'burning down the embassy'),
-('action', 'mistaking you for a threat'),
+('action', 'mistaking you as a threat'),
 ('action', '"repurposing" your horses'),
 
 /* Places */

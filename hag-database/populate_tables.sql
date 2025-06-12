@@ -1,3 +1,5 @@
+USE historical_apologies;
+
 INSERT INTO Figures(name, style) VALUES
 ('Napoleon Bonaparte', 'arrogant'),
 ('Julius Caesar', 'arrogant'),
@@ -34,7 +36,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('recipient', 'my beloved people'),
 ('recipient', 'the disappointed masses'),
 ('recipient', 'your esteemed council'),
-('recipient', 'a disgruntled goat farmer'),
+('recipient', 'the disgruntled goat farmer'),
 ('recipient', 'the island of Tortuga'),
 
 /* Actions */
@@ -64,7 +66,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('justification', 'I thought it would be funny'),
 
 /* Talents */
-('talent', 'do seven stomach crunches'),
+('talent', 'do up to seven stomach crunches'),
 ('talent', 'sneeze louder than everyone else'),
 ('talent', 'predict disasters shortly after they happen'),
 ('talent', 'become gray'),
@@ -86,7 +88,7 @@ INSERT INTO Feats(figure_id, content) VALUES
 (2, 'being named dictator for life (briefly) before being stabbed a lot'),
 (2, 'writing Commentaries on the Gallic War in the third person, for dramatic flair or perhaps for political propoganda'),
 (3, 'leading the Continental Army to victory against the British'),
-(3, 'voluntarily stepping down from power, twice'),
+(3, 'voluntarily stepping down from power twice'),
 (3, 'refusing to be made king, even when it was basically offered'),
 (4, 'mastering multiple languages and ruling Egypt with sharp political skill'),
 (4, 'arranging a meeting with Caesar by being smuggled inside a carpet'),

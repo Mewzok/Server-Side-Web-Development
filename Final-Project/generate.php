@@ -28,18 +28,33 @@
             $page->DisplayTitle();
             $page->DisplayStyles();
         ?>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php $page->DisplayHeader(); ?>
-        <div id="letterResultDiv">
+        <div id="letterResultDiv" class="letter-text cursive">
             <?php
                 // generate letter string
                 $letterString = generateLetter($figure, $figureId, $coreStyle, $modifierStyle, $recipient, $action, 
                 $place, $consequence, $justification, $talent, $fact, $featsList);
 
-                echo $letterString;
+                echo  $letterString;
             ?>
         </div>
+        <button id="toggleFontBtn" onclick="toggleFont()">Toggle Font Style</button>
+            <script>
+                function toggleFont() {
+                    const letter = document.getElementById('letterResultDiv');
+
+                    if(letter.classList.contains('cursive')) {
+                        letter.classList.remove('cursive');
+                        letter.classList.add('normal');
+                    } else {
+                        letter.classList.remove('normal');
+                        letter.classList.add('cursive');
+                    }
+                }
+            </script>
     </body>
 </html>
 <?php
@@ -62,7 +77,7 @@
                     an achievement.<br />
                     It only happened because $justification-something any reasonable person would understand.<br />
                     Besides, I can $talent, which few others can claim.<br />
-                    Regardless, let's not let this distract from my greatest moments: $feat, and, especially, $fact.<br />
+                    Regardless, let's not let this distract from my greatest achievements: $feat, and, especially, $fact.<br />
                     Begrudgingly yours, $figure";
                 break;
             case 'stoic':

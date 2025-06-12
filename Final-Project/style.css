@@ -116,9 +116,39 @@ input[type="submit"]:hover {
     padding: 30px;
     border-radius: 10px;
     line-height: 1.6;
-    font-size: 1.1rem;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
     color: #3e2b17;
     max-width: 700px;
     margin: 0 auto;
+}
+
+.letter-text.cursive {
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-size: 1.5rem;
+}
+
+.letter-text.normal {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+}
+
+#toggleFontBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-family: 'Georgia', serif;
+    border: none;
+    border-radius: 10px;
+    background-color: #6b4c35;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#toggleFontBtn:hover {
+    background-color: #8a5f3e;
 }

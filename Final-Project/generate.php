@@ -36,11 +36,11 @@
 </html>
 <?php
     function generateLetter($figure, $recipient, $action, $place, $consequence, $justification, $talent, $feat, $fact) {
-        $letter = "Dear $recipient,<br />
-            I am writing this letter to sincerely apologize for $action which occured in $place.<br />
-            I understand that $consequence was a direct result of my actions.<br />
+        $letter = "To $recipient,<br />
+            I am writing this letter to sincerely apologize for $action in $place.<br />
+            I understand that I $consequence as a direct result of my actions.<br />
             Please know that I only did this because $justification.<br />
-            In my defense, $talent.<br />
+            In my defense, I can $talent.<br />
             I hope we can move past this unfortunate event and that history will remember me not only for $feat
             but also for $fact.<br />
             - $figure";

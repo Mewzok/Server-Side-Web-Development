@@ -10,7 +10,7 @@ CREATE TABLE Figures
 CREATE TABLE Feats
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    figure_id INT NOT NULL,
+    figure_id INT UNSIGNED NOT NULL,
     content TEXT NOT NULL,
     FOREIGN KEY (figure_id) REFERENCES Figures(id)
         ON DELETE CASCADE

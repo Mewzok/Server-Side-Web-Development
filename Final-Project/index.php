@@ -238,46 +238,35 @@
                     </tr>
                 </table>
                 <input type="hidden" name="figureId" id="figureId" value="">
+                <input type="hidden" name="figureStyle" id="figureStyle" value="">
                 <input type="hidden" name="featsJSON" value='<?php echo htmlspecialchars(json_encode($featsList)); ?>'>
                 <script>
+                    // connect figure, id and style
                     const figureInput = document.querySelector('input[name="figure"]');
-                    const figureIdInput = document.createElement("input");
-                    figureIdInput.type = "hidden";
-                    figureIdInput.name = "figureId";
+                    const figureIdInput = document.querySelector('input[name="figureId"]');
+                    const figureStyleInput = document.querySelector('input[name="figureStyle"]');
 
                     const figureMap = {
                         <?php
                             foreach($figureList as $figure) {
-                                echo "'".addslashes($figure['name'])."':".intval($figure['id']).",";
+                                $safeName = addslashes($figure['name']);
+                                $safeStyle = addslashes($figure['style']);
+                                echo "'$safeName': { id: ".intval($figure['id']).", style: '$safeStyle' },";
                             }
                         ?>
                     };
 
-                    document.querySelector('form').appendChild(figureIdInput);
-
-                    document.querySelector('form').addEventListener('submit', function(event) {
-                        const selectedName = figureInput.value;
-                        if(figureMap[selectedName] !== undefined) {
-                            figureIdInput.value = figureMap[selectedName];
-                        } else {
-                            figureIdInput.value = -1;
-                        }
-                    });
-
-                    // handle connecting figure name and id
-                    const options = document.querySelectorAll('#figures option');
-
+                    // update both hidden fields on input
                     figureInput.addEventListener('input', () => {
                         const inputValue = figureInput.value;
-                        let matchedId = '';
 
-                        options.forEach(option => {
-                            if(option.value === inputValue) {
-                                matchedId = option.getAttribute('data-id');
-                            }
-                        });
-
-                        figureIdInput.value = matchedId;
+                        if(figureMap[inputValue]) {
+                            figureIdInput.value = figureMap[inputValue].id;
+                            figureStyleInput.value = figureMap[inputValue].style;
+                        } else {
+                            figureIdInput.value = -1;
+                            figureStyleInput.value = "";
+                        }
                     });
                 </script>
             </form>
@@ -335,8 +324,14 @@
                         input.value = randomOption.value;
 
                         if(fieldName === "figure") {
-                            const matchedId = figureMap[randomOption.value];
-                            figureIdInput.value = matchedId !== undefined ? matchedId : -1;
+                            const matchedData = figureMap[randomOption.value];
+                            if(matchedData) {
+                                figureIdInput.value = matchedData.id;
+                                figureStyleInput.value = matchedData.style;
+                            } else {
+                                figureIdInput.value = -1;
+                                figureStyleInput.value = "";
+                            }
                         }
                     }
                 });

@@ -191,8 +191,8 @@
                             </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="justRandomCheckbox" name="justRandomCheckbox">
-                            <label for="justRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="jusRandomCheckbox" name="jusRandomCheckbox">
+                            <label for="jusRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>
@@ -221,8 +221,8 @@
                             </datalist>
                         </td>
                         <td>
-                            <input type="checkbox" id="factRandomCheckbox" name="factRandomCheckbox">
-                            <label for="factRandomCheckbox">Randomize</label><br>
+                            <input type="checkbox" id="facRandomCheckbox" name="facRandomCheckbox">
+                            <label for="facRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>
@@ -263,6 +263,22 @@
                             figureIdInput.value = -1;
                         }
                     });
+
+                    // handle connecting figure name and id
+                    const options = document.querySelectorAll('#figures option');
+
+                    figureInput.addEventListener('input', () => {
+                        const inputValue = figureInput.value;
+                        let matchedId = '';
+
+                        options.forEach(option => {
+                            if(option.value === inputValue) {
+                                matchedId = option.getAttribute('data-id');
+                            }
+                        });
+
+                        figureIdInput.value = matchedId;
+                    });
                 </script>
             </form>
         </div>
@@ -291,22 +307,40 @@
                 });
             });
 
-            // handle connecting figure name and id
-            const figureInput = document.querySelector('input[name="figure"]');
-            const figureIdInput = document.getElementById('figureId');
-            const options = document.querySelectorAll('#figures option');
+            // handle randomized option selected and form submitted
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            figureInput.addEventListener('input', () => {
-                const inputValue = figureInput.value;
-                let matchedId = '';
+                const form = event.target;
 
-                options.forEach(option => {
-                    if(option.value === inputValue) {
-                        matchedId = option.getAttribute('data-id');
+                const fieldCheckboxMap = {
+                    figure: "figRandomCheckbox",
+                    recipient: "recRandomCheckbox",
+                    action: "actRandomCheckbox",
+                    place: "plaRandomCheckbox",
+                    consequence: "conRandomCheckbox",
+                    justification: "jusRandomCheckbox",
+                    talent: "talRandomCheckbox",
+                    fact: "facRandomCheckbox"
+                };
+
+                Object.keys(fieldCheckboxMap).forEach(fieldName => {
+                    const checkbox = document.getElementById(fieldCheckboxMap[fieldName]);
+                    const input = document.querySelector(`input[name="${fieldName}"]`);
+                    const datalist = document.getElementById(fieldName + 's');
+
+                    console.log(`${fieldName}: checkbox.checked = ${checkbox?.checked}, datalist length = ${datalist?.options.length}`);
+
+                    if(checkbox && checkbox.checked && datalist && datalist.options.length > 0) {
+                        const options = Array.from(datalist.options);
+                        const randomOption = options[Math.floor(Math.random() * options.length)];
+                        input.value = randomOption.value;
+                        console.log(`Randomizing ${fieldName} to: ${input.value}`);
                     }
                 });
 
-                figureIdInput.value = matchedId;
+                textInputs.forEach(input => input.disabled = false); // disabled fields don't send values, enable before sending
+                form.submit();
             });
         </script>
     </body>

@@ -3,15 +3,15 @@
 
     $page = new Page();
 
-    $figure = htmlspecialchars($_POST['figure']);
-    $figureId = ($_POST['figureId']);
-    $recipient = htmlspecialchars($_POST['recipient']);
-    $action = htmlspecialchars($_POST['action']);
-    $place = htmlspecialchars($_POST['place']);
-    $consequence = htmlspecialchars($_POST['consequence']);
-    $justification = htmlspecialchars($_POST['justification']);
-    $talent = htmlspecialchars($_POST['talent']);
-    $fact = htmlspecialchars($_POST['fact']);
+    $figure = htmlspecialchars($_POST['figure'] ?? '');
+    $figureId = htmlspecialchars($_POST['figureId'] ?? '');
+    $recipient = htmlspecialchars($_POST['recipient'] ?? '');
+    $action = htmlspecialchars($_POST['action'] ?? '');
+    $place = htmlspecialchars($_POST['place'] ?? '');
+    $consequence = htmlspecialchars($_POST['consequence'] ?? '');
+    $justification = htmlspecialchars($_POST['justification'] ?? '');
+    $talent = htmlspecialchars($_POST['talent'] ?? '');
+    $fact = htmlspecialchars($_POST['fact'] ?? '');
 
     $featsList = json_decode($_POST['featsJSON'], true);
 ?>

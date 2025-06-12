@@ -329,13 +329,15 @@
                     const input = document.querySelector(`input[name="${fieldName}"]`);
                     const datalist = document.getElementById(fieldName + 's');
 
-                    console.log(`${fieldName}: checkbox.checked = ${checkbox?.checked}, datalist length = ${datalist?.options.length}`);
-
                     if(checkbox && checkbox.checked && datalist && datalist.options.length > 0) {
                         const options = Array.from(datalist.options);
                         const randomOption = options[Math.floor(Math.random() * options.length)];
                         input.value = randomOption.value;
-                        console.log(`Randomizing ${fieldName} to: ${input.value}`);
+
+                        if(fieldName === "figure") {
+                            const matchedId = figureMap[randomOption.value];
+                            figureIdInput.value = matchedId !== undefined ? matchedId : -1;
+                        }
                     }
                 });
 

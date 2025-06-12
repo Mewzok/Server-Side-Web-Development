@@ -110,7 +110,8 @@
                             <input type="text" name="figure" list="figures"/>
                             <datalist id="figures">
                                 <?php foreach($figureList as $figure): ?>
-                                    <option value="<?php echo htmlspecialchars($figure['name']); ?>">
+                                    <option value="<?php echo htmlspecialchars($figure['name']); ?>"
+                                        data-id="<?php echo $figure['id']; ?>"></option>
                                 <?php endforeach; ?>
                             </datalist>
                         </td>
@@ -236,6 +237,8 @@
                         </td>
                     </tr>
                 </table>
+                <input type="hidden" name="figureId" id="figureId" value="">
+                <input type="hidden" name="featsJSON" value='<?php echo htmlscpecialchars(json_encode($featsList)); ?>'>
             </form>
         </div>
         <script>
@@ -261,6 +264,24 @@
                         input.disabled = checkbox.checked;
                     }
                 });
+            });
+
+            // handle connecting figure name and id
+            const figureInput = document.querySelector('input[name="figure"]');
+            const figureIdInput = document.getElementById('figureId');
+            const options = document.querySelectorAll('#figures option');
+
+            figureInput.addEventListener('input', () => {
+                const inputValue = figureInput.value;
+                let matchedId = '';
+
+                options.forEach(option => {
+                    if(option.value === inputValue) {
+                        matchedId = option.getAttribute('data-id');
+                    }
+                });
+
+                figureIdInput.value = matchedId;
             });
         </script>
     </body>

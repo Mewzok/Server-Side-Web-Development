@@ -28,8 +28,8 @@
         <div id="letterResultDiv">
             <?php
                 // generate letter string
-                $letterString = generateLetter($figure, $recipient, $action, $place, $consequence, $justification,
-                    $talent, $feat, $fact);
+                $letterString = generateLetter($figure, $figureId, $recipient, $action, $place, $consequence, $justification,
+                    $talent, $fact, $featsList);
 
                 echo $letterString;
             ?>
@@ -37,11 +37,20 @@
     </body>
 </html>
 <?php
-    function generateLetter($figure, $recipient, $action, $place, $consequence, $justification, $talent, $feat, $fact) {
+    function generateLetter($figure, $figureId, $recipient, $action, $place, $consequence, $justification, 
+        $talent, $fact, $featsList) {
+        // determine feat
+        if(isset($featsList[$figureId])) {
+            $figureFeats = $featsList[$figureId];
+            $feat = $figureFeats[array_rand($figureFeats)];
+        } else {
+            $feat = "doing that one thing";
+        }
+
         $letter = "To $recipient,<br />
             I am writing this letter to sincerely apologize for $action in $place.<br />
-            I understand that I $consequence as a direct result of my actions.<br />
-            Please know that I only did this because $justification.<br />
+            I understand that, as a direct result of my actions, I $consequence.<br />
+            Please know that I only did it because $justification.<br />
             In my defense, I can $talent.<br />
             I hope we can move past this unfortunate event and that history will remember me not only for $feat
             but also for $fact.<br />

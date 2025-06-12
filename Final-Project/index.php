@@ -238,7 +238,32 @@
                     </tr>
                 </table>
                 <input type="hidden" name="figureId" id="figureId" value="">
-                <input type="hidden" name="featsJSON" value='<?php echo htmlscpecialchars(json_encode($featsList)); ?>'>
+                <input type="hidden" name="featsJSON" value='<?php echo htmlspecialchars(json_encode($featsList)); ?>'>
+                <script>
+                    const figureInput = document.querySelector('input[name="figure"]');
+                    const figureIdInput = document.createElement("input");
+                    figureIdInput.type = "hidden";
+                    figureIdInput.name = "figureId";
+
+                    const figureMap = {
+                        <?php
+                            foreach($figureList as $figure) {
+                                echo "'".addslashes($figure['name'])."':".intval($figure['id']).",";
+                            }
+                        ?>
+                    };
+
+                    document.querySelector('form').appendChild(figureIdInput);
+
+                    document.querySelector('form').addEventListener('submit', function(event) {
+                        const selectedName = figureInput.value;
+                        if(figureMap[selectedName] !== undefined) {
+                            figureIdInput.value = figureMap[selectedName];
+                        } else {
+                            figureIdInput.value = -1;
+                        }
+                    });
+                </script>
             </form>
         </div>
         <script>

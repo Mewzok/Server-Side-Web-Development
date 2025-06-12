@@ -53,7 +53,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('place', 'that one cave absolutely crammed FULL of bats'),
 
 /* Consequences */
-('consequence', 'sinked the economy'),
+('consequence', 'sank the economy'),
 ('consequence', 'caused national weeping'),
 ('consequence', 'ruined Tuesday forever'),
 ('consequence', 'started a new war'),

@@ -25,6 +25,7 @@
         <!-- database import ----------------------------------------------------------->
         <?php
             $figureList = [];
+            $wordbankList = [];
 
             require_once('../hag-database/dbconnect.php');
 
@@ -48,8 +49,6 @@
                         'name' => $name
                     ];
                 }
-
-                echo count($figureList);
 
                 $stmt->close();
                 $db->close();
@@ -169,21 +168,6 @@
                         <td>
                             <input type="checkbox" id="talRandomCheckbox" name="talRandomCheckbox">
                             <label for="talRandomCheckbox">Randomize</label><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Feat</td>
-                        <td>
-                            <input type="text" name="feat" list="feats" />
-                            <datalist id="feats">
-                                <option>Feat 1</option>
-                                <option>Feat 2</option>
-                                <option>Feat 3</option>
-                            </datalist>
-                        </td>
-                        <td>
-                            <input type="checkbox" id="featRandomCheckbox" name="featRandomCheckbox">
-                            <label for="featRandomCheckbox">Randomize</label><br>
                         </td>
                     </tr>
                     <tr>

@@ -301,7 +301,9 @@
             // handle randomize all button
             const randomizeAllCheckbox = document.getElementById('randomizeAllCheckbox');
             const otherCheckboxes = document.
-                querySelectorAll('input[type="checkbox"]:not(#randomizeAllCheckbox)');
+                querySelectorAll(
+                    'input[type="checkbox"]:not(#randomizeAllCheckbox):not(#togglePersonality):not(#personUnhingedCheckbox)'
+                );
             const textInputs = document.querySelectorAll('input[type="text"]');
 
             randomizeAllCheckbox.addEventListener('change', () => {
@@ -365,6 +367,22 @@
                         }
                     }
                 });
+
+                // handle override personality
+                const overridePersonalityCheckbox = document.getElementById('togglePersonality');
+                const personUnhingedCheckbox = document.getElementById('personUnhingedCheckbox');
+                const personalityTypes = document.getElementById('personalityTypes');
+
+                if(overridePersonalityCheckbox.checked) {
+                    let finalStyle = personalityTypes.value;
+
+                    if(personUnhingedCheckbox.checked) {
+                        finalStyle += " unhinged";
+                    }
+
+                    figureStyleInput.value = finalStyle;
+                }
+
 
                 textInputs.forEach(input => input.disabled = false); // disabled fields don't send values, enable before sending
                 form.submit();

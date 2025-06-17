@@ -69,6 +69,18 @@
                     });
                 }
             </script>
+        <input type="checkbox" id="toggleUI" checked title="Show/Hide UI">
+            <script>
+                const toggleUICheckbox = document.getElementById('toggleUI');
+                const fontButton = document.getElementById('toggleFontBtn');
+                const downloadButton = document.getElementById('downloadBtn');
+
+                toggleUICheckbox.addEventListener('change', () => {
+                    const show = toggleUICheckbox.checked;
+                    fontButton.style.visibility = show ? 'visible' : 'hidden';
+                    downloadButton.style.visibility = show ? 'visible' : 'hidden';
+                });
+            </script>
     </body>
 </html>
 <?php

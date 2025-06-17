@@ -164,6 +164,11 @@ input[type="submit"]:hover {
     margin-top: 2rem;
 }
 
+.letter-text {
+    text-indent: 2em;
+    margin-bottom: 0;
+}
+
 .letter-text.cursive {
     font-family: 'Dancing Script', 'Brush Script MT', cursive;
     font-size: 1.5rem;
@@ -192,13 +197,25 @@ input[type="submit"]:hover {
 }
 
 #toggleFontBtn {
-    bottom: 60px;
+    bottom: 44px;
     right: 20px;
 }
 
 #downloadBtn {
-    bottom: 18px;
+    bottom: 4px;
     right: 20px;
+}
+
+#toggleUI {
+    position: fixed;
+    z-index: 1000;
+    bottom: 1px;
+    right: -2px;
+    opacity: 0.5;
+}
+
+#toggleUI:hover {
+    opacity: 1.0;
 }
 
 .letter-buttons:hover {

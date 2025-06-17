@@ -296,7 +296,8 @@
                 });
             });
 
-            // handle randomized option selected and form submitted
+            // handle randomize empty fields and/or
+            // randomized option selected and form submitted
             document.querySelector('form').addEventListener('submit', function(event) {
                 event.preventDefault();
 
@@ -318,7 +319,10 @@
                     const input = document.querySelector(`input[name="${fieldName}"]`);
                     const datalist = document.getElementById(fieldName + 's');
 
-                    if(checkbox && checkbox.checked && datalist && datalist.options.length > 0) {
+                    const shouldRandomize = (checkbox && checkbox.checked && datalist && datalist.options.length > 0)
+                    || (input && input.value.trim() === "");
+
+                    if(shouldRandomize) {
                         const options = Array.from(datalist.options);
                         const randomOption = options[Math.floor(Math.random() * options.length)];
                         input.value = randomOption.value;

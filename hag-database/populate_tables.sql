@@ -164,7 +164,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('talent', 'domesticate some animals'),
 ('talent', 'recite the entire treaty from memory'),
 ('talent', 'hold my breath for a meaningful amount of time'),
-('talent', 'after a lot of practice perform a pull-up with full range of motion'),
+('talent', 'perform a pull-up with full range of motion'),
 ('talent', 'name several types of cloud with confidence'),
 ('talent', 'remember the names of at least half the diplomats'),
 ('talent', 'speak eloquently under light duress'),

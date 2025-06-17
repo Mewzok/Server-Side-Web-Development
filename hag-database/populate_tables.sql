@@ -200,7 +200,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'how I kept every letter you ever sent me'),
 ('fact', 'my brief but passionate interest in cartography'),
 ('fact', 'the silence I maintained during the inquisition'),
-('fact', 'my collection of stones no one else finds beautiful'),
+('fact', 'my collection of stones that no one else finds beautiful but are still special to me'),
 ('fact', 'how I learned to fake a limp to seem more relatable'),
 ('fact', 'my refusal to blink when questioned'),
 ('fact', 'that I used to hum lullabies before we launched the fleet'),

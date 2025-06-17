@@ -78,7 +78,7 @@
                     It only happened because $justification-something any reasonable person would understand.<br />
                     Besides, I can $talent, which few others can claim.<br />
                     Regardless, let's not let this distract from my greatest achievements: $feat, and, especially, $fact.<br />
-                    Begrudgingly yours, $figure";
+                    <div class=\"signature\">Begrudgingly yours, $figure</div>";
                 break;
             case 'stoic':
                 $letter = "To $recipient,<br />
@@ -117,8 +117,8 @@
                 I understand that, as a direct result of my actions, I $consequence.<br />
                 Please know that I only did it because $justification.<br />
                 In my defense, I can $talent.<br />
-                I hope we can move past this unfortunate event and that history will remember me not only for $feat
-                but also for $fact.<br />
+                I hope we can move past this event and that history will remember me not only for this
+                unfortunate incident but also for $fact.<br />
                 - $figure";
         }
 

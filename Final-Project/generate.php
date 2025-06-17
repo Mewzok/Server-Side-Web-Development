@@ -132,11 +132,6 @@
                     $word = strtoupper($word);
                 }
 
-                // 5% chance to repeat the word
-                if(rand(0, 19) === 0) {
-                    $word .= ' ' . $word;
-                }
-
                 return $word;
             }, $letter);
         }

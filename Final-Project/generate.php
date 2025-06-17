@@ -62,9 +62,11 @@
                     const letterDiv = document.getElementById('letterResultDiv');
 
                     html2canvas(letterDiv, {scale:2}).then(canvas => {
+                        const imageData = canvas.toDataURL('image/png');
+                        
                         const link = document.createElement('a');
                         link.download = 'apology_letter.png';
-                        link.href = canvas.toDataURL('image/png');
+                        link.href = imageData;
                         link.click();
                     });
                 }
@@ -80,6 +82,28 @@
                     fontButton.style.visibility = show ? 'visible' : 'hidden';
                     downloadButton.style.visibility = show ? 'visible' : 'hidden';
                 });
+            </script>
+            <script>
+                // image capture and upload function
+                function captureAndSaveLetterImage() {
+                    const letterDiv = document.getElementById('letterResultDiv');
+
+                    html2canvas(letterDiv, {scale: 2}).then(canvas => {
+                        const imageData = canvas.toDataURL('image/png');
+
+                        // save to the server
+                        fetch('saveLetterImage.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({imageData: imageData})
+                        })
+                        .then(response => response.text())
+                        .then(result => console.log('Saved to server:', result))
+                        .catch(error => console.error('Error saving image:', error));
+                    });
+                }
             </script>
     </body>
 </html>

@@ -205,12 +205,12 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'my refusal to blink when questioned'),
 ('fact', 'that I used to hum lullabies before we launched the fleet'),
 ('fact', 'my daily walks through the ruins, long after the war'),
-('fact', 'how I wept when the statue was unveiled-not from pride, but relief'),
+('fact', 'how I wept when the statue was unveiled - not from pride, but relief'),
 ('fact', 'the oath I took alone, before they made me take the public one'),
 ('fact', 'how I stopped speaking for a week after the census report'),
 ('fact', 'my decision to stop wearing medals after the incident'),
 ('fact', 'the small victory garden I kept where the royal court couldn''t see'),
-('fact', 'my refusal to appoint a jester, insiting the truth was funny enough'),
+('fact', 'my refusal to appoint a jester, insisting the truth was funny enough'),
 ('fact', 'the song I sang to myself before the trial'),
 ('fact', 'that I counted every step from the palace to the gallows');
 
@@ -220,7 +220,7 @@ INSERT INTO Feats(figure_id, content) VALUES
 (1, 'established the Napoleonic Code, a legal framework still influencing many countries today'),
 (2, 'conquering Gaul and bringing it into the Roman fold'),
 (2, 'being named dictator for life (briefly) before being stabbed a lot'),
-(2, 'writing Commentaries on the Gallic War in the third person, for dramatic flair or perhaps for political propoganda'),
+(2, 'writing Commentaries on the Gallic War in the third person, for dramatic flair or perhaps for political propaganda'),
 (3, 'leading the Continental Army to victory against the British'),
 (3, 'voluntarily stepping down from power twice'),
 (3, 'refusing to be made king, even when it was basically offered'),

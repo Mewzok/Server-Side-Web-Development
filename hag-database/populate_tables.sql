@@ -69,7 +69,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('talent', 'do up to seven stomach crunches'),
 ('talent', 'sneeze louder than everyone else'),
 ('talent', 'predict disasters shortly after they happen'),
-('talent', 'become gray'),
+('talent', 'become gray at will'),
 ('talent', 'domesticate some animals'),
 ('talent', 'use a human hand almost as efficiently as a shovel'),
 
@@ -77,7 +77,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'my uncanny ability to fold napkins symmetrically'),
 ('fact', 'my highly consistent penmanship under cannon fire'),
 ('fact', 'the way I can spot a pigeon from 400 meters away'),
-('fact', 'the fact that I once donated to charity'),
+('fact', 'that I once donated to charity'),
 ('fact', 'that one time I threw a molotov cocktail through the window of a 7/11');
 
 INSERT INTO Feats(figure_id, content) VALUES

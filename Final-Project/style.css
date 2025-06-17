@@ -61,7 +61,7 @@ form {
     padding: 20px 40px;
     border-radius: 12px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: auto;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -72,8 +72,42 @@ form table {
 }
 
 form td {
-    padding: 8px;
-    vertical-align: top;
+    padding: 4px 8px;
+    vertical-align: middle;
+}
+
+form td:last-child {
+    white-space: nowrap;
+}
+
+form input[type="text"], form input[type="checkbox"], form select {
+    vertical-align: middle;
+}
+
+#personalityToggleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+#personalityRow {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    padding: 4px 8px;
+    background-color: #f9f5ec;
+    border-radius: 8px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#personalityRow select, #personalityRow input[type="checkbox"], #personalityRow label {
+    font-size: 0.9rem;
+    vertical-align: middle;
 }
 
 #randomizeAllDiv {

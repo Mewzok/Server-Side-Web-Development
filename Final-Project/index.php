@@ -121,6 +121,32 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>
+                            <div id="personalityToggleDiv">
+                                <input type="checkbox" id="togglePersonality" />
+                                <label for="togglePersonality">Override Personality</label>
+                            </div>
+                            <div id="personalityRow" style="display: none;">
+                                <select name="personalityTypes" id="personalityTypes">
+                                    <option value="random">Random</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="arrogant">Arrogant</option>
+                                    <option value="stoic">Stoic</option>
+                                    <option value="blunt">Blunt</option>
+                                    <option value="proper">Proper</option>
+                                </select>
+                                <input type="checkbox" id="personUnhingedCheckbox" name="personUnhingedCheckbox">
+                                <label for="personUnhingedCheckbox">Unhinged</label>
+                            </div>
+                            <script>
+                                document.getElementById('togglePersonality').addEventListener('change', function() {
+                                    document.getElementById('personalityRow').style.display = this.checked ?
+                                        'flex' : 'none';
+                                });
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Recipient</td>
                         <td>
                             <input type="text" name="recipient" list="recipients" />

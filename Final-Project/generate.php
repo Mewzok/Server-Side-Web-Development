@@ -155,7 +155,7 @@
                     return $matches[1];
                 }
 
-                return preg_replace_callback('/\b\w+\b/', function($wordMatch) {
+                return preg_replace_callback('/\b\w+(?:\'\w+)?\b/', function($wordMatch) {
                     $word = $wordMatch[0];
                     // capitalize word at 1 in 10 chance
                     return rand(0, 9) === 0 ? strtoupper($word) : $word;

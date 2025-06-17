@@ -29,6 +29,7 @@
             $page->DisplayStyles();
         ?>
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     </head>
     <body>
         <?php $page->DisplayHeader(); ?>
@@ -41,7 +42,7 @@
                 echo  $letterString;
             ?>
         </div>
-        <button id="toggleFontBtn" onclick="toggleFont()">Toggle Font Style</button>
+        <button class="letter-buttons" id="toggleFontBtn" onclick="toggleFont()">Toggle Font Style</button>
             <script>
                 function toggleFont() {
                     const letter = document.getElementById('letterResultDiv');
@@ -53,6 +54,19 @@
                         letter.classList.remove('normal');
                         letter.classList.add('cursive');
                     }
+                }
+            </script>
+        <button class="letter-buttons" id="downloadBtn" onclick="downloadLetterImage()">Download Letter</button>
+            <script>
+                function downloadLetterImage() {
+                    const letterDiv = document.getElementById('letterResultDiv');
+
+                    html2canvas(letterDiv, {scale:2}).then(canvas => {
+                        const link = document.createElement('a');
+                        link.download = 'apology_letter.png';
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                    });
                 }
             </script>
     </body>

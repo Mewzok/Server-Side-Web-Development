@@ -93,8 +93,8 @@
             case 'proper':
                 $letter = "To $recipient,<br />
                     I write to express my deepest regrets for my recent actions: $action in $place.<br />
-                    The consequences of my conduct-namely, $consequence-are not lost upon me.<br />
-                    Please understand that my motives, while flawed, stemmed from $justification.<br />
+                    The consequences of my conduct-namely, that I $consequence-are not lost upon me.<br />
+                    Please understand that my motives, while flawed, stemmed from the simple fact that $justification.<br />
                     I do hope that my ability to $talent may serve as some small consolation.<br />
                     May my legacy not be limited to $feat, but also include $fact.<br />
                     With all due respect,<br />
@@ -103,11 +103,11 @@
             case 'blunt':
                 $letter = "To $recipient,<br />
                     Sorry for $action in $place. My bad.<br />
-                    I do feel bad for $consequence, but it happens.<br />
+                    I do feel bad that I $consequence, but it happens.<br />
                     To be fair, I only did it because $justification.<br />
                     If it makes you feel better I can $talent.<br />
-                    Anyway, don't let that distract you from how I $feat.<br />
-                    Not to brag, but I also $fact, so take that into consideration, too.
+                    Anyway, don't let that distract you from me $feat.<br />
+                    Also take into consideration $fact.<br />
                     Thanks,<br />
                     $figure";
                 break;

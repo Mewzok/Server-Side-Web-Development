@@ -57,7 +57,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('consequence', 'caused national weeping'),
 ('consequence', 'ruined Tuesday forever'),
 ('consequence', 'started a new war'),
-('consequence', 'obliterated 14% of the population'),
+('consequence', 'obliterated 24% of the population'),
 
 /* Justifications */
 ('justification', 'the stars aligned'),

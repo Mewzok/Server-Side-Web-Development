@@ -102,7 +102,7 @@
                     Though technically unrelated, I do possess the ability to $talent.<br />
                     I ask that you remember me not for this error, but instead for $feat.<br />
                     Though, perhaps even more importantly, for $fact.<br />
-                    - $figure";
+                    <div class=\"signature\">- $figure</div>";
                 break;
             case 'proper':
                 $letter = "To $recipient,<br />
@@ -111,8 +111,8 @@
                     Please understand that my motives, while flawed, stemmed from the simple fact that $justification.<br />
                     I do hope that my ability to $talent may serve as some small consolation.<br />
                     May my legacy not be limited to $feat, but also include $fact.<br />
-                    With all due respect,<br />
-                    $figure";
+                    <div class=\"signature\">With all due respect,<br />
+                    $figure</div>";
                 break;
             case 'blunt':
                 $letter = "To $recipient,<br />
@@ -122,8 +122,8 @@
                     If it makes you feel better I can $talent.<br />
                     Anyway, don't let that distract you from me $feat.<br />
                     Also take into consideration $fact.<br />
-                    Thanks,<br />
-                    $figure";
+                    <div class=\"signature\">Thanks for understanding,<br />
+                    $figure</div>";
                 break;
             default:
                 $letter = "To $recipient,<br />
@@ -133,20 +133,22 @@
                 In my defense, I can $talent.<br />
                 I hope we can move past this event and that history will remember me not only for this
                 unfortunate incident but also for $fact.<br />
-                - $figure";
+                <div class=\"signature\">- $figure</div>";
         }
 
         // check modifier
         if(!empty($modifierStyle) && in_array('unhinged', $modifierStyle)) {
-            $letter = preg_replace_callback('/\b\w+\b/', function($matches) {
-                $word = $matches[0];
-
-                // 10% chance to uppercase the word
-                if(rand(0, 9) === 0) {
-                    $word = strtoupper($word);
+            $letter = preg_replace_callback('/(<[^>]+>)|([^<]+)/', function($matches) {
+                // if HTML tag, don't do anything
+                if(!empty($matches[1])) {
+                    return $matches[1];
                 }
 
-                return $word;
+                return preg_replace_callback('/\b\w+\b/', function($wordMatch) {
+                    $word = $wordMatch[0];
+                    // capitalize word at 1 in 10 chance
+                    return rand(0, 9) === 0 ? strtoupper($word) : $word;
+                }, $matches[2]);
             }, $letter);
         }
 

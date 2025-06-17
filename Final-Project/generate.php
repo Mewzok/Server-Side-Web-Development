@@ -97,10 +97,9 @@
         // determine style
         switch ($coreStyle) {
             case 'arrogant':
-                $letter = "To $recipient,<br />
-                    I suppose I must apologize for $action in $place.<br />
-                    Though, frankly, I think history will vindicate me. After all, I $consequence, and that's quite
-                    an achievement.<br />
+                $letter = "To $recipient,<br />".
+                    "I suppose I must apologize for $action in $place.<br />
+                    Though, frankly, I think history will vindicate me. After all, I $consequence, and that's quite an achievement.<br />
                     It only happened because $justification-something any reasonable person would understand.<br />
                     Besides, I can $talent, which few others can claim.<br />
                     Regardless, let's not let this distract from my greatest achievements: $feat, and, especially, $fact.<br />

@@ -2,19 +2,21 @@
 /*
     Author: Jonathan Kinney
     Date Created: 06/10/2025
-    Date Modified: 06/12/2025
+    Date Modified: 06/17/2025
 
     Filename: style.css
 */
 /* Reset Styling */
 body, html {
-    height: 100%;
+    height: auto;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0;
+    padding-bottom: 10px;
     font-family: 'Georgia', serif;
     background: url('resources/parchment-background.jpg') no-repeat center top;
     background-size: cover;

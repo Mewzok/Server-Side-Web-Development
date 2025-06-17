@@ -69,7 +69,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('action', 'renaming your capital city'),
 ('action', 'annexing the western provinces'),
 ('action', 'overstepping several boundaries simultaneously'),
-('action', 'summoning the militia without content'),
+('action', 'summoning the militia without context'),
 ('action', 'enforcing curfews retroactively'),
 ('action', 'installing a provisional government'),
 ('action', 'taking liberties with your charter'),

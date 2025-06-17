@@ -217,7 +217,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 INSERT INTO Feats(figure_id, content) VALUES
 (1, 'leading the French army to dominate Europe during the early 19th century'),
 (1, 'crowning myself Emperor in front of the Pope, then placing the crown on my own head'),
-(1, 'established the Napoleonic Code, a legal framework still influencing many countries today'),
+(1, 'establishing the Napoleonic Code, a legal framework still influencing many countries today'),
 (2, 'conquering Gaul and bringing it into the Roman fold'),
 (2, 'being named dictator for life (briefly) before being stabbed a lot'),
 (2, 'writing Commentaries on the Gallic War in the third person, for dramatic flair or perhaps for political propaganda'),

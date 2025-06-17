@@ -114,7 +114,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('consequence', 'bankrupted the local treasury'),
 ('consequence', 'dismantled centuries of tradition'),
 ('consequence', 'upset the religious balance'),
-('consequence', 'led to twelve resignations'),
+('consequence', 'caused twelve resignations'),
 ('consequence', 'compromised the census'),
 ('consequence', 'shifted the border file miles east'),
 ('consequence', 'undermined peace talks'),

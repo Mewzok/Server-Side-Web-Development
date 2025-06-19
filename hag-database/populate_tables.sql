@@ -204,7 +204,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'how I learned to fake a limp to seem more relatable'),
 ('fact', 'my refusal to blink when questioned'),
 ('fact', 'the fact that I used to hum lullabies before we launched the fleet'),
-('fact', 'my daily walks through the ruins, long after the war'),
+('fact', 'my... daily walks through the ruins... long after the war..'),
 ('fact', 'how I wept when the statue was unveiled - not from pride, but relief'),
 ('fact', 'the oath I took alone, before they made me take the public one'),
 ('fact', 'how I stopped speaking for a week after the census report'),

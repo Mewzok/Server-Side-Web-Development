@@ -203,7 +203,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'my collection of stones that no one else finds beautiful but are still special to me'),
 ('fact', 'how I learned to fake a limp to seem more relatable'),
 ('fact', 'my refusal to blink when questioned'),
-('fact', 'that I used to hum lullabies before we launched the fleet'),
+('fact', 'the fact that I used to hum lullabies before we launched the fleet'),
 ('fact', 'my daily walks through the ruins, long after the war'),
 ('fact', 'how I wept when the statue was unveiled - not from pride, but relief'),
 ('fact', 'the oath I took alone, before they made me take the public one'),
@@ -212,7 +212,7 @@ INSERT INTO WordBank (word_type, content) VALUES
 ('fact', 'the small victory garden I kept where the royal court couldn''t see'),
 ('fact', 'my refusal to appoint a jester, insisting the truth was funny enough'),
 ('fact', 'the song I sang to myself before the trial'),
-('fact', 'that I counted every step from the palace to the gallows');
+('fact', 'the fact that I periodically counted every step from the palace to the gallows');
 
 INSERT INTO Feats(figure_id, content) VALUES
 (1, 'leading the French army to dominate Europe during the early 19th century'),

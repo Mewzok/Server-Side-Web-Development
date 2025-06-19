@@ -234,7 +234,7 @@ input[type="submit"]:hover, #viewRecentBtn:hover {
 
 .letter-image {
     width: 600px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc70;
     border-radius: 8px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }

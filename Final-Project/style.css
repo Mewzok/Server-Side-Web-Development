@@ -116,17 +116,17 @@ form input[type="text"] {
 }
 
 #randomizeAllDiv {
-    text-align: center;
+    text-align: right;
     margin-top: 8px;
 }
 
 #randomizeAllCheckbox {
-    transform: scale(1.5);
+    transform: scale(1.1);
     margin-right: 10px;
 }
 
 #randomizeAllLabel {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #5a3f2e;
     vertical-align: middle;

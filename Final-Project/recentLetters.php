@@ -30,7 +30,9 @@
         <main>
             <?php if(count($images) > 0): ?>
                 <div id="todaysImagesDiv">
-                    <?php foreach($images as $image): ?>
+                    <?php
+                        $images = array_reverse($images); 
+                        foreach($images as $image): ?>
                         <img src="<?php echo $image; ?>" class="letter-image" />
                     <?php endforeach; ?>
                 </div>

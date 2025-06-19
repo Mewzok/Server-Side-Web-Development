@@ -137,7 +137,7 @@
                     Though technically unrelated, I do possess the ability to $talent.<br />
                     I ask that you remember me not for this error, but instead for $feat.<br />
                     Though, perhaps even more importantly, for $fact.<br />
-                    <div class=\"signature\">- $figure</div>";
+                    <div class=\"signature\">Regards, $figure</div>";
                 break;
             case 'proper':
                 $letter = "To $recipient,<br />

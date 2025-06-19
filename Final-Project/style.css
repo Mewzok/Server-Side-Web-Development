@@ -223,3 +223,18 @@ input[type="submit"]:hover, #viewRecentBtn:hover {
 .letter-buttons:hover {
     background-color: #8a5f3e;
 }
+
+/* Recent Letters Page Styling */
+#todaysImagesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.letter-images {
+    width: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}

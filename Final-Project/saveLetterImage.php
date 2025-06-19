@@ -20,13 +20,13 @@
     $decodedImage = base64_decode($imageData);
 
     // create folder if it doesn't exist
-    $folderPath = 'recent_letters';
-    if(!file_exists($folderPath)) {
-        mkdir($folderPath, 0755, true);
+    $dateFolder = 'letters/'.date('Y-m-d');
+    if(!file_exists($dateFolder)) {
+        mkdir($dateFolder, 0777, true);
     }
 
     // name each letter based on date and time
-    $filename = $folder.'/letter_'.time().'.png';
+    $filename = $dateFolder.'/'.uniqid('letter_', true).'.png';
 
     // save file
     file_put_contents($filename, $decodedImage);

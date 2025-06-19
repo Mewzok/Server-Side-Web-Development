@@ -190,3 +190,10 @@
             return $letter;
     }
 ?>
+
+<script>
+    // save letter to server after full load
+    window.addEventListener('load', () => {
+        captureAndSaveLetterImage();
+    });
+</script>

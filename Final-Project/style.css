@@ -232,8 +232,8 @@ input[type="submit"]:hover, #viewRecentBtn:hover {
     justify-content: center;
 }
 
-.letter-images {
-    width: auto;
+.letter-image {
+    width: 600px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);

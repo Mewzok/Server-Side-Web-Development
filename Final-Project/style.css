@@ -85,6 +85,10 @@ form input[type="text"], form input[type="checkbox"], form select {
     vertical-align: middle;
 }
 
+form input[type="text"] {
+    min-width: 270px;
+}
+
 #personalityToggleDiv {
     display: flex;
     justify-content: center;

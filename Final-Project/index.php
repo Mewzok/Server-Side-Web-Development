@@ -107,7 +107,7 @@
                     <tr>
                         <td>Historical Figure</td>
                         <td>
-                            <input type="text" name="figure" list="figures"/>
+                            <input type="text" name="figure" list="figures" placeholder="e.g. Napoleon Bonaparte"/>
                             <datalist id="figures">
                                 <?php foreach($figureList as $figure): ?>
                                     <option value="<?php echo htmlspecialchars($figure['name']); ?>"
@@ -151,7 +151,7 @@
                     <tr>
                         <td>Recipient</td>
                         <td>
-                            <input type="text" name="recipient" list="recipients" />
+                            <input type="text" name="recipient" placeholder="e.g. the citizens of Rome" />
                             <datalist id="recipients">
                                 <?php foreach($wordBankList['recipient'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -166,7 +166,7 @@
                     <tr>
                         <td>Action</td>
                         <td>
-                            <input type="text" name="action" list="actions" />
+                            <input type="text" name="action" placeholder="e.g. invading your territory" />
                             <datalist id="actions">
                                 <?php foreach($wordBankList['action'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -181,7 +181,7 @@
                     <tr>
                         <td>Place</td>
                         <td>
-                            <input type="text" name="place" list="places" />
+                            <input type="text" name="place" placeholder="e.g. the eastern provinces" />
                             <datalist id="places">
                                 <?php foreach($wordBankList['place'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -196,7 +196,7 @@
                     <tr>
                         <td>Consequence</td>
                         <td>
-                            <input type="text" name="consequence" list="consequences" />
+                            <input type="text" name="consequence" placeholder="e.g. sank the economy" />
                             <datalist id="consequences">
                                 <?php foreach($wordBankList['consequence'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -211,7 +211,7 @@
                     <tr>
                         <td>Justification</td>
                         <td>
-                            <input type="text" name="justification" list="justifications" />
+                            <input type="text" name="justification" placeholder="e.g. the stars aligned" />
                             <datalist id="justifications">
                                 <?php foreach($wordBankList['justification'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -226,7 +226,7 @@
                     <tr>
                         <td>Talent</td>
                         <td>
-                            <input type="text" name="talent" list="talents" />
+                            <input type="text" name="talent" placeholder="e.g. recite a speech from memory" />
                             <datalist id="talents">
                                 <?php foreach($wordBankList['talent'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">
@@ -241,7 +241,7 @@
                     <tr>
                         <td>Fact</td>
                         <td>
-                            <input type="text" name="fact" list="facts" />
+                            <input type="text" name="fact" placeholder="e.g. my ability to remain calm under pressure" />
                             <datalist id="facts">
                                 <?php foreach($wordBankList['fact'] as $content): ?>
                                     <option value="<?php echo htmlspecialchars($content); ?>">

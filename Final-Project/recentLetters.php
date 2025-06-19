@@ -38,5 +38,6 @@
                 <p>No letters written today.</p>
             <?php endif; ?>
         </main>
+        <?php $page->backToHomeButton(); ?>
     </body>
 </html>

@@ -51,5 +51,11 @@
             </header>
             <?php
         }
+
+        public function backToHomeButton() {
+            ?>
+            <button id="backToHomeBtn" onclick="window.location='index.php'">← Back to Generator</button>
+            <?php
+        }
     }
 ?>

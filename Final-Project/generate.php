@@ -105,6 +105,7 @@
                     });
                 }
             </script>
+            <?php $page->backToHomeButton(); ?>
     </body>
 </html>
 <?php

@@ -26,15 +26,16 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <header><h1>Today's Letters</h1></header>
+        <header><a href="recentLetters.php" class="headerLinks"><h1>Today's Letters</h1></a></header>
         <main>
             <?php if(count($images) > 0): ?>
                 <div id="todaysImagesDiv">
                     <?php
-                        $images = array_reverse($images); 
-                        foreach($images as $image): ?>
-                        <img src="<?php echo $image; ?>" class="letter-image" />
-                    <?php endforeach; ?>
+                        $images = array_reverse($images);
+                        foreach($images as $image) {
+                            echo '<img src="'.$image.'"class="letter-image" />';
+                        }
+                    ?>
                 </div>
             <?php else: ?>
                 <p>No letters written today.</p>

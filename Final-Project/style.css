@@ -42,7 +42,7 @@ header h1 {
     color: #2e1c0d;
 }
 
-a#headerLink {
+a.headerLinks {
     text-decoration: none;
     color: inherit;
 }

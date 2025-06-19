@@ -45,7 +45,7 @@
             ?>
             <!-- page header -->
             <header class="page-header">
-                <a href="index.php" id="headerLink">
+                <a href="index.php" class="headerLinks">
                     <h1 id="pageTitle">Historical Apology Generator</h1>
                 </a>
             </header>

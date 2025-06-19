@@ -130,7 +130,7 @@ form input[type="text"], form input[type="checkbox"], form select {
 
 
 /* Button Styling */
-input[type="submit"] {
+input[type="submit"], #viewRecentBtn {
     background-color: #a67c52;
     color: white;
     padding: 10px 20px;
@@ -141,8 +141,15 @@ input[type="submit"] {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, #viewRecentBtn:hover {
     background-color: #8a643f;
+}
+
+#viewRecentBtn {
+    position: fixed;
+    z-index: 1000;
+    bottom: 4px;
+    right: 4px;
 }
 
 /* Letter Display Box Styling */

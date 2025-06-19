@@ -10,7 +10,7 @@
             Historical Apology Generator home page
             Author: Jonathan Kinney
             Date Created: 06/10/2025
-            Date Modified: 06/17/2025
+            Date Modified: 06/19/2025
 
             Filename: index.php
         -->
@@ -125,7 +125,7 @@
                             <div id="personalityToggleDiv">
                                 <input type="checkbox" id="togglePersonality" />
                                 <label for="togglePersonality">Override Personality
-                                    <span title="Personality type changes the tone of how the letter is written. It is typically connected to the individual figure but can be overridden here. Will not randomize with the Randomize All button. Custom figures will use the normal personality if not overridden."> ⓘ </span>
+                                    <span title="Personality type changes the tone of how the letter is written. It is typically connected to the individual figure but can be overridden here. Will not randomize with the Randomize All button. Custom figures will use the default &quot;normal&quot; personality if not overridden."> ⓘ </span>
                                 </label>
                             </div>
                             <div id="personalityRow" style="display: none;">
@@ -390,5 +390,7 @@
                 form.submit();
             });
         </script>
+
+        <button id="viewRecentBtn" onclick="window.location='recentLetters.php'">View Today's Letters →</button>
     </body>
 </html>
